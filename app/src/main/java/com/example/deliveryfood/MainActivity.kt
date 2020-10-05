@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //jalgas
         val navView: BottomNavigationView = findViewById(R.id.btm_nav_view)
 
         val navController = findNavController(R.id.fragment_container)
