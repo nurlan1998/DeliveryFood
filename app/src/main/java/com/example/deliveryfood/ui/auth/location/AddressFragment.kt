@@ -1,4 +1,4 @@
-package com.example.deliveryfood.ui.auth.tips
+package com.example.deliveryfood.ui.auth.location
 
 import androidx.fragment.app.Fragment
 import com.example.deliveryfood.R

@@ -3,41 +3,61 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/selectedLocationFragment">
+    app:startDestination="@id/selectedLocationFragment3">
 
     <fragment
         android:id="@+id/nearMeFragment"
         android:name="com.example.deliveryfood.ui.main.nearme.NearMeFragment"
         android:label="fragment_near_me"
-        tools:layout="@layout/fragment_near_me" />
+        tools:layout="@layout/fragment_near_me" >
+        <action
+            android:id="@+id/action_nearMeFragment_to_alertFragment2"
+            app:destination="@id/alertFragment" />
+    </fragment>
     <fragment
         android:id="@+id/alertFragment"
         android:name="com.example.deliveryfood.ui.main.alerts.AlertFragment"
         android:label="fragment_alert"
-        tools:layout="@layout/fragment_alert" />
+        tools:layout="@layout/fragment_alert" >
+        <action
+            android:id="@+id/action_alertFragment_to_exploreFragment"
+            app:destination="@id/exploreFragment" />
+    </fragment>
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.example.deliveryfood.ui.main.account.AccountFragment"
+        android:name="com.example.deliveryfood.ui.auth.account.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.example.deliveryfood.ui.main.cart.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
     <fragment
         android:id="@+id/exploreFragment"
         android:name="com.example.deliveryfood.ui.main.explore.ExploreFragment"
         android:label="fragment_explore"
-        tools:layout="@layout/fragment_explore" />
+        tools:layout="@layout/fragment_explore" >
+        <action
+            android:id="@+id/action_exploreFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/addressFragment"
-        android:name="com.example.deliveryfood.ui.auth.tips.AddressFragment"
+        android:id="@+id/addressFragment3"
+        android:name="com.example.deliveryfood.ui.auth.location.AddressFragment"
         android:label="fragment_address"
         tools:layout="@layout/fragment_address" />
     <fragment
-        android:id="@+id/selectedLocationFragment"
-        android:name="com.example.deliveryfood.ui.auth.tips.SelectedLocationFragment"
+        android:id="@+id/selectedLocationFragment3"
+        android:name="com.example.deliveryfood.ui.auth.location.SelectedLocationFragment"
         android:label="fragment_selected_location"
-        tools:layout="@layout/fragment_selected_location" />
+        tools:layout="@layout/fragment_selected_location">
+        <action
+            android:id="@+id/action_selectedLocationFragment3_to_nearMeFragment"
+            app:destination="@id/nearMeFragment" />
+    </fragment>
 </navigation>
