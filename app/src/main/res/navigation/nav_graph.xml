@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/exploreFragment"
-        android:name="com.example.deliveryfood.ui.main.explore.ExploreFragment"
+        android:name="com.example.deliveryfood.ui.main.explore.SearchFragment"
         android:label="fragment_explore"
         tools:layout="@layout/fragment_explore" >
         <action
