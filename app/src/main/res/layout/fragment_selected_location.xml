@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:layout_marginBottom="8dp"
     android:background="#E7EAED"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical"
     tools:context=".ui.auth.location.SelectedLocationFragment">
 
