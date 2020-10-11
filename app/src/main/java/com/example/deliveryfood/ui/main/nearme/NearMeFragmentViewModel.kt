@@ -20,5 +20,4 @@ class NearMeFragmentViewModel(application: Application, val repository: Reposito
 
         Log.i("jalgas", response.body().toString())
     }
-
 }
