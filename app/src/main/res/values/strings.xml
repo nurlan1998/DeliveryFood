@@ -8,4 +8,8 @@
     <string name="cart">Cart</string>
     <string name="account">Account</string>
     <string name="title_activity_maps">Map</string>
+    <string name="tv_your_location">Your Location</string>
+    <string name="et_hint_apartment">Apartment</string>
+    <string name="et_hint_eg_home_work">EG. Home,Work</string>
+    <string name="btn_text_save_address">Save Address</string>
 </resources>
