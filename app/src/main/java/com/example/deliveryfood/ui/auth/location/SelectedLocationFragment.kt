@@ -1,8 +1,7 @@
-package com.example.deliveryfood.ui.auth.tips
+package com.example.deliveryfood.ui.auth.location
 
 import android.Manifest
 import android.app.Activity
-import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
@@ -40,7 +39,7 @@ class SelectedLocationFragment : Fragment(R.layout.fragment_selected_location), 
         mapView.onCreate(savedInstanceState)
 
         btnSaveAddress.setOnClickListener {
-            findNavController().navigate(R.id.action_selectedLocationFragment3_to_addressFragment3)
+            findNavController().navigate(R.id.action_selectedLocationFragment3_to_nearMeFragment)
         }
     }
 

@@ -7,7 +7,7 @@
     android:layout_marginBottom="8dp"
     android:background="#E7EAED"
     android:orientation="vertical"
-    tools:context=".ui.auth.tips.SelectedLocationFragment">
+    tools:context=".ui.auth.location.SelectedLocationFragment">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
