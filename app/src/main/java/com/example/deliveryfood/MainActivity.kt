@@ -12,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            when(destination.id){
+            when (destination.id) {
                 R.id.selectedLocationFragment3 -> hideButtonNav()
                 else -> showButtonNav()
             }
@@ -39,14 +40,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(
-            Navigation.findNavController(this,R.id.fragment_container),
+            Navigation.findNavController(this, R.id.fragment_container),
             null
         )
     }
-    private fun showButtonNav(){
+
+    private fun showButtonNav() {
         btm_nav_view.visibility = View.VISIBLE
     }
-    private fun hideButtonNav(){
+
+    private fun hideButtonNav() {
         btm_nav_view.visibility = View.GONE
     }
 }

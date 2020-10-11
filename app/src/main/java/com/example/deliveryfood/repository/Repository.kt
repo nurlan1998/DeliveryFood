@@ -7,15 +7,15 @@ import retrofit2.Response
 
 class Repository {
 
-    suspend fun getRestaurant( price:Int, name:String,address:String): Response<DataRestaurant>{
-        return RetrofitInstance.api.getRestaurant(price, name, address)
+    suspend fun getRestaurant(city: String, country: String): Response<DataRestaurant> {
+        return RetrofitInstance.api.getRestaurant(city, country)
     }
 
-    suspend fun getDetailRestaurant(): Response<DataRestaurant>{
+    suspend fun getDetailRestaurant(): Response<DataRestaurant> {
         return RetrofitInstance.api.getDetailRestaurant()
     }
 
-    suspend fun getSearchRestaurant(): Response<DataRestaurant>{
+    suspend fun getSearchRestaurant(): Response<DataRestaurant> {
         return RetrofitInstance.api.getSearchRestaurant()
     }
 }
