@@ -10,14 +10,15 @@ import com.example.deliveryfood.repository.Repository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class NearMeFragmentViewModel(application: Application,val repository: Repository): AndroidViewModel(application) {
+class NearMeFragmentViewModel(application: Application, val repository: Repository) :
+    AndroidViewModel(application) {
     val restaurantLiveData: MutableLiveData<Response<DataRestaurant>> = MutableLiveData()
 
-    fun getAllRestaurant(price:Int,name:String,address:String) = viewModelScope.launch {
-        val response = repository.getRestaurant(price,name, address)
+    fun getAllRestaurant(city: String, country: String) = viewModelScope.launch {
+        val response = repository.getRestaurant(city, country)
         restaurantLiveData.value = response
 
-        Log.e("jalgas",response.body().toString())
+        Log.i("jalgas", response.body().toString())
     }
 
 }
