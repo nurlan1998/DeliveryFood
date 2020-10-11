@@ -9,23 +9,37 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.deliveryfood.R
 import com.example.deliveryfood.repository.Repository
+import kotlinx.android.synthetic.main.fragment_near_me.*
 
 class NearMeFragment : Fragment(R.layout.fragment_near_me) {
 
-    private lateinit var mNearMeFragmentViewModel:NearMeFragmentViewModel
+    private lateinit var mNearMeFragmentViewModel: NearMeFragmentViewModel
+    private lateinit var adapter: NearMeAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var repository = Repository()
-        var NearMeViewModelFactory = NearMeViewModelFactory(Application(), repository)
-        mNearMeFragmentViewModel = ViewModelProvider(this, NearMeViewModelFactory).get(NearMeFragmentViewModel::class.java)
+        setRecyclerView()
 
-        mNearMeFragmentViewModel.getAllRestaurant(city = " ",country = "AW")
+        val repository = Repository()
+        val NearMeViewModelFactory = NearMeViewModelFactory(Application(), repository)
+        mNearMeFragmentViewModel =
+            ViewModelProvider(this, NearMeViewModelFactory).get(NearMeFragmentViewModel::class.java)
+
+        mNearMeFragmentViewModel.getAllRestaurant(city = " ", country = "AW")
         mNearMeFragmentViewModel.restaurantLiveData.observe(requireActivity(), Observer {
             if (it.isSuccessful) {
-                Log.i("jalgas2",it.body()?.restaurants.toString())
+                Log.i("jalgas2", it.body()?.restaurants.toString())
+                val result = it.body()?.restaurants
+                if (result != null) {
+                    adapter.models = result
+                }
             }
         })
+    }
+
+    private fun setRecyclerView() {
+        adapter = NearMeAdapter()
+        rvNearMe.adapter = adapter
     }
 }

@@ -140,10 +140,10 @@ class SelectedLocationFragment : Fragment(R.layout.fragment_selected_location), 
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        mapView.onSaveInstanceState(outState)
-    }
+//    override fun onSaveInstanceState(outState: Bundle) {
+//        super.onSaveInstanceState(outState)
+//        mapView.onSaveInstanceState(outState)
+//    }
 
     override fun onResume() {
         super.onResume()
