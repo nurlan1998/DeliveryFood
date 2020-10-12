@@ -32,8 +32,7 @@ class NearMeAdapter : RecyclerView.Adapter<NearMeAdapter.NearMeViewHolder>() {
     inner class NearMeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun populate(singleRestaurant: SingleRestaurant) {
             itemView.tvNameRestaurant.text = singleRestaurant.name
-            itemView.tvRating.text = singleRestaurant.state
-            itemView.tvTypeFood.text = singleRestaurant.phone
+            itemView.tvTypeFood.text = singleRestaurant.address
 
             Glide.with(itemView.context).load(singleRestaurant.imageUrl)
                 .into(itemView.ivRestaurant)
