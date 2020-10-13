@@ -21,16 +21,13 @@
         android:id="@+id/alertFragment"
         android:name="com.example.deliveryfood.ui.main.alerts.AlertFragment"
         android:label="fragment_alert"
-        tools:layout="@layout/fragment_alert">
+        tools:layout="@layout/fragment_alert" >
         <action
             android:id="@+id/action_alertFragment_to_exploreFragment"
             app:destination="@id/exploreFragment" />
         <action
             android:id="@+id/action_alertFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_alertFragment_to_cartFragment"
-            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
@@ -73,6 +70,8 @@
         android:id="@+id/authFragment"
         android:name="com.example.deliveryfood.ui.auth.auth.AuthFragment"
         android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" />
+    <fragment/>
         tools:layout="@layout/fragment_auth" >
         <action
             android:id="@+id/action_authFragment_to_accountFragment"
