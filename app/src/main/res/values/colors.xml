@@ -3,7 +3,7 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="backgroudColor">#FC8019</color>
+    <color name="btn_background_color">#FC8019</color>
     <color name="login_et_text_color">#FEF7FF</color>
-    <color name="login_et_background">#FC8019</color>
+    <color name="toolbar_background">#F2F4F9</color>
 </resources>

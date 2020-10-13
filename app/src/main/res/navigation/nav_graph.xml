@@ -9,19 +9,12 @@
         android:id="@+id/nearMeFragment"
         android:name="com.example.deliveryfood.ui.main.nearme.NearMeFragment"
         android:label="fragment_near_me"
-        tools:layout="@layout/fragment_near_me" >
-        <action
-            android:id="@+id/action_nearMeFragment_to_exploreFragment"
-            app:destination="@id/exploreFragment" />
-        <action
-            android:id="@+id/action_nearMeFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_near_me" />
     <fragment
         android:id="@+id/alertFragment"
         android:name="com.example.deliveryfood.ui.main.alerts.AlertFragment"
         android:label="fragment_alert"
-        tools:layout="@layout/fragment_alert" >
+        tools:layout="@layout/fragment_alert">
         <action
             android:id="@+id/action_alertFragment_to_exploreFragment"
             app:destination="@id/exploreFragment" />
@@ -40,8 +33,11 @@
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart">
         <action
-            android:id="@+id/action_cartFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_cartFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_authFragment"
+            app:destination="@id/authFragment" />
     </fragment>
     <fragment
         android:id="@+id/exploreFragment"
@@ -49,8 +45,8 @@
         android:label="fragment_explore"
         tools:layout="@layout/fragment_explore">
         <action
-            android:id="@+id/action_exploreFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            android:id="@+id/action_exploreFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/addressFragment3"
@@ -71,27 +67,9 @@
         android:name="com.example.deliveryfood.ui.auth.auth.AuthFragment"
         android:label="fragment_auth"
         tools:layout="@layout/fragment_auth" />
-    <fragment/>
-        tools:layout="@layout/fragment_auth" >
-        <action
-            android:id="@+id/action_authFragment_to_accountFragment"
-            app:destination="@id/accountFragment" />
-    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.deliveryfood.ui.auth.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_authFragment"
-            app:destination="@id/authFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_accountFragment"
-            app:destination="@id/accountFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.example.deliveryfood.ui.main.detail.DetailFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_login" />
 </navigation>
