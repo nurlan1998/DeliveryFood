@@ -12,4 +12,10 @@
     <string name="et_hint_apartment">Apartment</string>
     <string name="et_hint_eg_home_work">EG. Home,Work</string>
     <string name="btn_text_save_address">Save Address</string>
+    <string name="login_email_et_hint">Email</string>
+    <string name="login_password_et_hint">Password</string>
+    <string name="login_btn_text">LOGIN</string>
+    <string name="register">Don\'t have an account yet?</string>
+    <string name="toolbar_login">LOGIN \nEnter your email and Password</string>
+    <string name="btnRegister">Register</string>
 </resources>

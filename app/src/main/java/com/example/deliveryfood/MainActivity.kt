@@ -24,9 +24,13 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
+<<<<<<< HEAD
                 R.id.selectedLocationFragment3,R.id.authFragment -> {
                     hideButtonNav()
                 }
+=======
+                R.id.selectedLocationFragment3,R.id.loginFragment -> hideButtonNav()
+>>>>>>> 5945e7d... added login design
                 else -> showButtonNav()
             }
         }
