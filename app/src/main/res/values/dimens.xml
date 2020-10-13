@@ -5,4 +5,5 @@
     <dimen name="tv_item_margin_end">24dp</dimen>
     <dimen name="rv_tv_name_size">15sp</dimen>
     <dimen name="rv_tv_type_size">12sp</dimen>
+    <dimen name="et_padding">8dp</dimen>
 </resources>

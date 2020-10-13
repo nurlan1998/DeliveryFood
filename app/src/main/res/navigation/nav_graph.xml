@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_cartFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_authFragment"
+            app:destination="@id/authFragment" />
     </fragment>
     <fragment
         android:id="@+id/exploreFragment"
@@ -60,4 +63,9 @@
             android:id="@+id/action_selectedLocationFragment3_to_nearMeFragment"
             app:destination="@id/nearMeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.example.deliveryfood.ui.auth.auth.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" />
 </navigation>
