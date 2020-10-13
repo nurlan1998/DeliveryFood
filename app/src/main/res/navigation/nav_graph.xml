@@ -9,16 +9,12 @@
         android:id="@+id/nearMeFragment"
         android:name="com.example.deliveryfood.ui.main.nearme.NearMeFragment"
         android:label="fragment_near_me"
-        tools:layout="@layout/fragment_near_me" >
-        <action
-            android:id="@+id/action_nearMeFragment_to_alertFragment2"
-            app:destination="@id/alertFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_near_me" />
     <fragment
         android:id="@+id/alertFragment"
         android:name="com.example.deliveryfood.ui.main.alerts.AlertFragment"
         android:label="fragment_alert"
-        tools:layout="@layout/fragment_alert" >
+        tools:layout="@layout/fragment_alert">
         <action
             android:id="@+id/action_alertFragment_to_exploreFragment"
             app:destination="@id/exploreFragment" />
@@ -35,7 +31,7 @@
         android:id="@+id/cartFragment"
         android:name="com.example.deliveryfood.ui.main.cart.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" >
+        tools:layout="@layout/fragment_cart">
         <action
             android:id="@+id/action_cartFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
@@ -47,7 +43,7 @@
         android:id="@+id/exploreFragment"
         android:name="com.example.deliveryfood.ui.main.explore.SearchFragment"
         android:label="fragment_explore"
-        tools:layout="@layout/fragment_explore" >
+        tools:layout="@layout/fragment_explore">
         <action
             android:id="@+id/action_exploreFragment_to_cartFragment"
             app:destination="@id/cartFragment" />
@@ -71,10 +67,9 @@
         android:name="com.example.deliveryfood.ui.auth.auth.AuthFragment"
         android:label="fragment_auth"
         tools:layout="@layout/fragment_auth" />
-    <fragment/>
+    <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.deliveryfood.ui.auth.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
->>>>>>> 5945e7d... added login design
 </navigation>

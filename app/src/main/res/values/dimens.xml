@@ -2,23 +2,22 @@
 <resources>
     <dimen name="large_margin_top">16dp</dimen>
     <dimen name="large_margin_bottom">16dp</dimen>
-<<<<<<< HEAD
-    <dimen name="tv_item_margin_end">24dp</dimen>
-    <dimen name="rv_tv_name_size">15sp</dimen>
-    <dimen name="rv_tv_type_size">12sp</dimen>
-    <dimen name="et_padding">8dp</dimen>
-=======
     <dimen name="small_margin_top">4dp</dimen>
     <dimen name="small_margin_bottom">4dp</dimen>
+
     <dimen name="large_margin_end">24dp</dimen>
-    <dimen name="large_text_size">15sp</dimen>
-    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="large_margin_start">24dp</dimen>
     <dimen name="small_margin_start">8dp</dimen>
     <dimen name="small_margin_end">8dp</dimen>
+
+    <dimen name="large_text_size">15sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+
     <dimen name="small_padding">8dp</dimen>
     <dimen name="large_padding">16dp</dimen>
+
     <dimen name="small_icon_text_size">10sp</dimen>
+
     <dimen name="iv_small_layout_width">15dp</dimen>
     <dimen name="iv_small_layout_height">15dp</dimen>
->>>>>>> 5945e7d... added login design
 </resources>
