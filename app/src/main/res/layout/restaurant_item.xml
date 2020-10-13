@@ -21,37 +21,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/large_margin_top"
-            android:layout_marginEnd="@dimen/tv_item_margin_end"
+            android:layout_marginEnd="@dimen/large_margin_end"
             android:maxLines="1"
             android:text="Gyro Bar"
-            android:textSize="@dimen/rv_tv_name_size"
+            android:textSize="@dimen/large_text_size"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvTypeFood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginTop="@dimen/small_margin_top"
+            android:layout_marginEnd="@dimen/large_margin_end"
             android:text="Fries,Meet,Greet"
-            android:textSize="@dimen/rv_tv_type_size" />
+            android:textSize="@dimen/small_text_size" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginTop="@dimen/small_margin_top"
+            android:layout_marginEnd="@dimen/large_margin_end"
             android:background="#EEEEEE" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/small_margin_top"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="@dimen/iv_small_layout_width"
+                android:layout_height="@dimen/iv_small_layout_height"
                 android:layout_gravity="center"
                 android:src="@drawable/icon_star" />
 
@@ -61,11 +61,11 @@
                 android:layout_height="30dp"
                 android:gravity="center"
                 android:text="4.5"
-                android:textSize="10sp" />
+                android:textSize="@dimen/small_icon_text_size" />
 
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="@dimen/iv_small_layout_width"
+                android:layout_height="@dimen/iv_small_layout_height"
                 android:layout_gravity="center"
                 android:src="@drawable/icon_cloack" />
 
@@ -73,26 +73,26 @@
                 android:id="@+id/tvRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginStart="@dimen/small_margin_start"
+                android:layout_marginBottom="@dimen/large_margin_bottom"
                 android:text="15 MINS"
                 android:textSize="10sp" />
 
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="@dimen/iv_small_layout_width"
+                android:layout_height="@dimen/iv_small_layout_height"
                 android:layout_gravity="center"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="@dimen/small_margin_start"
                 android:src="@drawable/icon_wallet" />
 
             <TextView
                 android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginStart="@dimen/small_margin_start"
+                android:layout_marginEnd="@dimen/large_margin_end"
                 android:text="$35 FOR TWO"
-                android:textSize="10sp" />
+                android:textSize="@dimen/small_icon_text_size" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

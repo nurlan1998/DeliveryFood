@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/selectedLocationFragment3">
+    app:startDestination="@id/selectedLocationFragment3"
+    >
 
     <fragment
         android:id="@+id/nearMeFragment"
@@ -22,6 +23,9 @@
         <action
             android:id="@+id/action_alertFragment_to_exploreFragment"
             app:destination="@id/exploreFragment" />
+        <action
+            android:id="@+id/action_alertFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
@@ -60,4 +64,9 @@
             android:id="@+id/action_selectedLocationFragment3_to_nearMeFragment"
             app:destination="@id/nearMeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.deliveryfood.ui.auth.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>
