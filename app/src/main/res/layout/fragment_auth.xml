@@ -36,7 +36,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="64dp"
                 android:layout_marginTop="@dimen/small_margin_top"
-                android:src="@drawable/icon_regis" />
+                 />
         </LinearLayout>
     </Toolbar>
 
