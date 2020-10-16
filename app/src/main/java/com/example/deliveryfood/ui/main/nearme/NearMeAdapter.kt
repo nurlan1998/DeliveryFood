@@ -9,13 +9,19 @@ import com.example.deliveryfood.R
 import com.example.deliveryfood.data.models.SingleRestaurant
 import kotlinx.android.synthetic.main.restaurant_item.view.*
 
-class NearMeAdapter : RecyclerView.Adapter<NearMeAdapter.NearMeViewHolder>() {
+class NearMeAdapter() : RecyclerView.Adapter<NearMeAdapter.NearMeViewHolder>() {
 
     var models: List<SingleRestaurant> = listOf()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
+
+    private lateinit var itemClick: (SingleRestaurant) -> Unit
+
+    fun setItemClick(itemClick: (model: SingleRestaurant) -> Unit){
+        this.itemClick = itemClick
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NearMeViewHolder {
         var view =
@@ -33,6 +39,10 @@ class NearMeAdapter : RecyclerView.Adapter<NearMeAdapter.NearMeViewHolder>() {
         fun populate(singleRestaurant: SingleRestaurant) {
             itemView.tvNameRestaurant.text = singleRestaurant.name
             itemView.tvTypeFood.text = singleRestaurant.address
+
+            itemView.setOnClickListener {
+                itemClick.invoke(singleRestaurant)
+            }
 
             Glide.with(itemView.context).load(singleRestaurant.imageUrl)
                 .into(itemView.ivRestaurant)

@@ -7,6 +7,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.deliveryfood.R
 import com.example.deliveryfood.repository.Repository
 import kotlinx.android.synthetic.main.fragment_near_me.*
@@ -45,6 +46,9 @@ class NearMeFragment : Fragment(R.layout.fragment_near_me) {
     private fun setRecyclerView() {
         adapter = NearMeAdapter()
         rvNearMe.adapter = adapter
+        adapter.setItemClick {
+            findNavController().navigate(R.id.action_nearMeFragment_to_detailFragment)
+        }
     }
 
     private fun hideProgressBar() {
