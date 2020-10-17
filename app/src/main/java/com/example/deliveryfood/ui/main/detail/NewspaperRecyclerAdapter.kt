@@ -10,14 +10,30 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.deliveryfood.R
+import com.example.deliveryfood.data.models.SingleRestaurant
+import com.example.deliveryfood.ui.main.detail.model.HeadlinesModel
 import com.example.deliveryfood.ui.main.detail.model.NewspaperModel
 
-class NewspaperAdapter(context: Context, data: List<NewspaperModel>?) :
+class NewspaperAdapter(context: Context) :
     RecyclerView.Adapter<NewspaperAdapter.NewspaperViewHolder>() {
     private var mContext: Context = context
-    private var items: List<NewspaperModel>? = data
+
+    //    private var items: List<NewspaperModel>? = data
     private var inflater: LayoutInflater = LayoutInflater.from(context)
     private var headlineAdapter: HeadlinesAdapter? = null
+
+    var data: MutableList<NewspaperModel> = mutableListOf()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
+    private lateinit var itemClick: (NewspaperModel) -> Unit
+
+    fun setItemClick(itemClick: (model: NewspaperModel) -> Unit) {
+        this.itemClick = itemClick
+    }
+
 
     override
     fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewspaperViewHolder {
@@ -27,12 +43,13 @@ class NewspaperAdapter(context: Context, data: List<NewspaperModel>?) :
 
     override
     fun onBindViewHolder(holder: NewspaperViewHolder, position: Int) {
-        val item = items?.get(position)
+        val item = data?.get(position)
 
         holder.tvName.text = item?.papername
-        headlineAdapter = HeadlinesAdapter(mContext, item?.paperHeadlinesModel)
+        headlineAdapter = HeadlinesAdapter(mContext, item.paperHeadlinesModel)
         holder.rvHeadlines.adapter = headlineAdapter
         holder.rvHeadlines.layoutManager = LinearLayoutManager(mContext)
+
         holder.itemView.setOnClickListener { onItemClicked(item) }
         if (item?.isExpanded!!) {
             holder.rvHeadlines.visibility = View.VISIBLE
@@ -45,10 +62,10 @@ class NewspaperAdapter(context: Context, data: List<NewspaperModel>?) :
 
     override
     fun getItemCount(): Int {
-        return items?.size ?: 0
+        return data.size ?: 0
     }
 
-    private fun onItemClicked(newspaperModel: NewspaperModel?) {
+    fun onItemClicked(newspaperModel: NewspaperModel?) {
         newspaperModel?.isExpanded = !newspaperModel?.isExpanded!!
         notifyDataSetChanged()
     }
