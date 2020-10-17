@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.deliveryfood.R
 import com.example.deliveryfood.ui.main.detail.model.JsonHelper
 import com.example.deliveryfood.ui.main.detail.model.NewspaperModel
-import com.skydoves.expandablelayout.ExpandableLayout
+
 import kotlinx.android.synthetic.main.fragment_detail.*
 
 
