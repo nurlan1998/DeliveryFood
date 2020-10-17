@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.deliveryfood.R
 import com.example.deliveryfood.ui.main.detail.model.JsonHelper
@@ -73,9 +72,5 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 //                dialog.show()
 //
 //            }
-
-        }
-
-    }
 
 }
