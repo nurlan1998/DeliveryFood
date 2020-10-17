@@ -10,10 +10,8 @@ import kotlinx.android.synthetic.main.fragment_explore.*
 class SearchFragment : Fragment(R.layout.fragment_explore) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btn.setOnClickListener {
+        btnSearch.setOnClickListener {
             findNavController().navigate(R.id.action_exploreFragment_to_detailFragment)
         }
     }
-
-
 }
