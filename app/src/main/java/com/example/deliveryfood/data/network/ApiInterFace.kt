@@ -2,6 +2,7 @@ package com.example.deliveryfood.data.network
 
 import com.example.deliveryfood.data.models.DataRestaurant
 import com.example.deliveryfood.data.models.UserLocation
+import com.example.deliveryfood.data.models.expandable.CurrentLocation
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -26,8 +27,8 @@ interface ApiInterFace {
     @GET("")
     suspend fun getSearchRestaurant(): Response<DataRestaurant>
 
-    @Headers("Content-Type: application/json")
-    @POST()
-    suspend fun PostLocation(@Body userLocation: UserLocation): Response<UserLocation>
+
+    @POST("https://foodapi.achilov.dev/api/get-delivery-restaurants")
+    suspend fun postLocation(@Body userLocation: UserLocation): Response<CurrentLocation>
 
 }

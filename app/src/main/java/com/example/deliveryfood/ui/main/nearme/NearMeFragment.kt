@@ -41,6 +41,7 @@ class NearMeFragment : Fragment(R.layout.fragment_near_me) {
         mNearMeFragmentViewModel = ViewModelProvider(this, mNearMeViewModelFactory)
             .get(NearMeFragmentViewModel::class.java)
         mNearMeFragmentViewModel.getAllRestaurant(city = " ", country = "AW")
+//        mNearMeFragmentViewModel.getCurrentLocationRestaurant()
     }
 
     private fun setRecyclerView() {

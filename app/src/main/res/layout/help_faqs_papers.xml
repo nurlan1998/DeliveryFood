@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Help/FAQs"
+        android:layout_marginTop="@dimen/large_margin_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:drawableRightCompat="@drawable/ic_arrow_right_24"
+        app:drawableLeftCompat="@drawable/icon_home" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:drawableRightCompat="@drawable/ic_arrow_right_24"
+        app:drawableLeftCompat="@drawable/icon_home" />
+
+</LinearLayout>
