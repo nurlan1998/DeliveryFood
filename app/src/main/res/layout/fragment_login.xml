@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.auth.login.LoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/small_margin_bottom"
+        android:background="@color/toolbar_background"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin_start"
+            android:layout_marginBottom="@dimen/small_margin_bottom"
+            android:padding="@dimen/small_padding"
+            android:text="@string/toolbar_login"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_login_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_login"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin_start"
+        android:layout_marginTop="@dimen/small_margin_top"
+        android:layout_marginEnd="@dimen/small_margin_end"
+        android:layout_marginBottom="@dimen/small_margin_bottom"
+        android:hint="@string/email_et_hint"
+        android:padding="@dimen/large_padding">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin_start"
+        android:layout_marginTop="@dimen/small_margin_top"
+        android:layout_marginEnd="@dimen/small_margin_end"
+        android:layout_marginBottom="@dimen/small_margin_bottom"
+        android:hint="@string/login_password_et_hint"
+        android:padding="@dimen/small_padding">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin_start"
+        android:layout_marginTop="@dimen/small_margin_top"
+        android:layout_marginEnd="@dimen/small_margin_end"
+        android:backgroundTint="@color/btn_background_color"
+        android:padding="@dimen/small_padding"
+        android:text="@string/login_btn_text"
+        android:textAllCaps="false"
+        android:textColor="@color/login_et_text_color" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/large_margin_start"
+        android:layout_marginTop="@dimen/large_margin_top"
+        android:layout_marginEnd="@dimen/large_margin_end"
+        android:layout_marginBottom="@dimen/small_margin_top"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/large_margin_start"
+            android:layout_marginTop="@dimen/small_margin_top"
+            android:layout_marginBottom="@dimen/small_margin_bottom"
+            android:padding="@dimen/small_padding"
+            android:text="@string/register"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/registerBtn"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/registerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin_top"
+            android:layout_marginEnd="@dimen/large_margin_end"
+            android:layout_marginBottom="@dimen/small_margin_bottom"
+            android:padding="@dimen/small_padding"
+            android:text="@string/register_btn_text"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

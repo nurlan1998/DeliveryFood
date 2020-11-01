@@ -1,14 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.auth.account.AccountFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello Account Fragment" />
+        android:layout_height="wrap_content">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/toolbar_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/small_margin_end">
+
+            <TextView
+                android:id="@+id/tvTitleAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_padding"
+                android:text="Nurlan"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvPhoneAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_padding"
+                android:text="+998999563884"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitleAccount" />
+
+            <TextView
+                android:id="@+id/tvEmailAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_padding"
+                android:text="nurlanungarbaev@gmail.com"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPhoneAccount" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="@dimen/large_margin_end"
+                app:layout_constraintBottom_toBottomOf="@id/tvPhoneAccount"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.skydoves.expandablelayout.ExpandableLayout
+        android:id="@+id/expandableMyAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="@dimen/small_margin_start"
+        android:layout_marginEnd="@dimen/small_margin_end"
+        app:expandable_duration="300"
+        app:expandable_isExpanded="false"
+        app:expandable_parentLayout="@layout/my_account_headline"
+        app:expandable_secondLayout="@layout/my_account_paper"
+        app:expandable_showSpinner="true"
+        app:expandable_spinner="@drawable/ic_arrow_down"
+        app:expandable_spinner_animate="true"
+        app:expandable_spinner_gravity="end"
+        app:expandable_spinner_margin="14dp"
+        app:expandable_spinner_size="32dp" />
+
+    <View style="@style/Divider"/>
+
+    <com.skydoves.expandablelayout.ExpandableLayout
+        android:id="@+id/expandableHelp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:expandable_duration="300"
+        android:layout_marginStart="@dimen/small_margin_start"
+        android:layout_marginEnd="@dimen/small_margin_end"
+        app:expandable_isExpanded="false"
+        app:expandable_parentLayout="@layout/help_faqs_headline"
+        app:expandable_secondLayout="@layout/help_faqs_papers"
+        app:expandable_showSpinner="true"
+        app:expandable_spinner="@drawable/ic_arrow_down"
+        app:expandable_spinner_animate="true"
+        app:expandable_spinner_gravity="start"
+        app:expandable_spinner_margin="14dp"
+        app:expandable_spinner_size="32dp"/>
+
+    <View style="@style/Divider"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_marginTop="@dimen/large_margin_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvLogout"
+            android:text="Logout"
+            android:textColor="@color/btn_background_color"
+            android:layout_marginTop="@dimen/large_margin_top"
+            android:textSize="@dimen/large_text_size"
+            android:layout_marginStart="@dimen/large_margin_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/ivLogout"
+            android:src="@drawable/icon_logout"
+            android:layout_marginEnd="@dimen/large_margin_end"
+            android:layout_marginTop="@dimen/large_margin_top"
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+</LinearLayout>
