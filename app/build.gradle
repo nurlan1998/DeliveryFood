@@ -76,4 +76,6 @@ dependencies {
 
     implementation "com.github.skydoves:expandablelayout:1.0.6"
 
+    implementation 'com.itkacher.okhttpprofiler:okhttpprofiler:1.0.7'
+
 }

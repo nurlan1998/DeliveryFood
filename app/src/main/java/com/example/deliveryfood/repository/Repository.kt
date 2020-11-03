@@ -20,7 +20,7 @@ class Repository {
         return RetrofitInstance.api.getSearchRestaurant()
     }
 
-    suspend fun getCurrentLocationRes(): Response<CurrentLocation>{
-        return RetrofitInstance.api.postLocation( UserLocation(41.311081,69.240562))
+    suspend fun getCurrentLocationRes(userLocation: UserLocation): Response<UserLocation>{
+        return RetrofitInstance.api.postLocation(userLocation)
     }
 }

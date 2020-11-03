@@ -28,7 +28,16 @@ interface ApiInterFace {
     suspend fun getSearchRestaurant(): Response<DataRestaurant>
 
 
-    @POST("https://foodapi.achilov.dev/api/get-delivery-restaurants")
-    suspend fun postLocation(@Body userLocation: UserLocation): Response<CurrentLocation>
+    @POST("/api/get-delivery-restaurants")
+    suspend fun postLocation(
+        @Body userLocation: UserLocation
+    ): Response<UserLocation>
+//    @FormUrlEncoded
+//    @Headers("Content-Type: application/json")
+//    @POST("/api/get-delivery-restaurants")
+//    suspend fun postLocation(
+//        @Field("latitude:") latitude: String,
+//        @Field("longitude:") longitude: String
+//    ): Response<CurrentLocation>
 
 }

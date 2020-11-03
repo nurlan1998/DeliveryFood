@@ -6,7 +6,8 @@ object Constants {
     const val LOCATION_UPDATE_INTERVAL = 5000L
     const val FASTEST_LOCATION_INTERVAL = 2000L
 
-    const val BASE_URL = "https://opentable.herokuapp.com"
+//    const val BASE_URL = "https://opentable.herokuapp.com"
+    const val BASE_URL = "https://foodapi.achilov.dev"
    // const val BASE_URL = ""
 
 
