@@ -10,8 +10,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.deliveryfood.R
-import com.example.deliveryfood.data.models.SingleRestaurant
-import com.example.deliveryfood.ui.main.detail.model.HeadlinesModel
 import com.example.deliveryfood.ui.main.detail.model.NewspaperModel
 
 class NewspaperAdapter(context: Context) :

@@ -1,9 +1,9 @@
-package com.example.deliveryfood.data.models.expandable
+package com.example.deliveryfood.data.models
 
 
 import com.google.gson.annotations.SerializedName
 
-data class CurrentLocationItem(
+data class RestaurantsItem(
     @SerializedName("delivery_time")
     val deliveryTime: String,
     @SerializedName("description")

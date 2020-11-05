@@ -57,25 +57,28 @@
                 android:src="@drawable/icon_star" />
 
             <TextView
-                android:id="@+id/tvTimes"
-                android:layout_width="40dp"
-                android:layout_height="30dp"
+                android:id="@+id/tvRating"
+                android:layout_marginStart="@dimen/small_margin_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_gravity="center"
                 android:text="4.5"
                 android:textSize="@dimen/small_icon_text_size" />
 
             <ImageView
                 android:layout_width="@dimen/iv_small_layout_width"
                 android:layout_height="@dimen/iv_small_layout_height"
+                android:layout_marginStart="@dimen/small_margin_start"
                 android:layout_gravity="center"
                 android:src="@drawable/icon_cloack" />
 
             <TextView
-                android:id="@+id/tvRating"
+                android:id="@+id/tvTimes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginStart="@dimen/small_margin_start"
-                android:layout_marginBottom="@dimen/large_margin_bottom"
                 android:text="15 MINS"
                 android:textSize="10sp" />
 
@@ -88,6 +91,7 @@
 
             <TextView
                 android:id="@+id/tvPrice"
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/small_margin_start"

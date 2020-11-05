@@ -15,12 +15,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/rvNearMe"-->
-<!--        android:layout_marginTop="@dimen/large_margin_top"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvNearMe"
+        android:layout_marginTop="@dimen/large_margin_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/progressBar"

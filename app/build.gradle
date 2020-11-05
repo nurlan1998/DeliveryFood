@@ -60,6 +60,7 @@ dependencies {
 
     // Architectural Components
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
 
     //Google Maps
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
