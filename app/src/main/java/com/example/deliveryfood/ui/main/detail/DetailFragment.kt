@@ -9,12 +9,16 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.liveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.deliveryfood.R
-import com.example.deliveryfood.ui.main.detail.model.JsonHelper
-import com.example.deliveryfood.ui.main.detail.model.NewspaperModel
-import com.skydoves.expandablelayout.ExpandableLayout
+import com.example.deliveryfood.data.network.RetrofitInstance
+import com.example.deliveryfood.ui.main.detail.model.*
+
 import kotlinx.android.synthetic.main.fragment_detail.*
+import retrofit2.Response
 
 
 class DetailFragment : Fragment(R.layout.fragment_detail) {
@@ -24,8 +28,12 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
     lateinit var alertDialog: AlertDialog.Builder
     lateinit var dialog: AlertDialog
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        getRequestPath()
 
         val adapter = NewspaperAdapter(
             requireContext()
@@ -73,4 +81,20 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 //
 //            }
 
+
+    private fun getRequestPath() {
+        val pathResponse: LiveData<Response<RestourantsMenuTest>> = liveData{
+              val response = RetrofitInstance.api.restourantMenu("u-babushki-6udslmcmm6cmdiw")
+             emit(response)
+        }
+        pathResponse.observe(requireActivity(), Observer {
+            val response = it.body()?.items?.nonushta
+           // var list:List<RestourantsMenuTest> = listOf()
+           // list = it.body()?.items.nonushta.toList()
+
+            Toast.makeText(requireContext(), response.toString(), Toast.LENGTH_LONG).show()
+            Log.i("jalgas",response.toString())
+        })
+
+    }
 }

@@ -17,6 +17,7 @@ class NearMeFragment : Fragment(R.layout.fragment_near_me) {
     private lateinit var mNearMeFragmentViewModel: NearMeFragmentViewModel
     private lateinit var mNearMeViewModelFactory: NearMeViewModelFactory
     private lateinit var adapter: NearMeAdapter
+    private lateinit var adapterHorizontal:NearMeRvHorizontal
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,6 +30,7 @@ class NearMeFragment : Fragment(R.layout.fragment_near_me) {
             Log.i("Res",restaurantsList.toString())
             if (restaurantsList != null) {
                 adapter.models = restaurantsList
+                adapterHorizontal.horizontalModel = restaurantsList
             }
         })
     }
@@ -43,7 +45,9 @@ class NearMeFragment : Fragment(R.layout.fragment_near_me) {
 
     private fun setRecyclerView() {
         adapter = NearMeAdapter()
+        adapterHorizontal = NearMeRvHorizontal()
         rvNearMe.adapter = adapter
+        rvNearMeHorizontal.adapter = adapterHorizontal
         adapter.setItemClick {
             findNavController().navigate(R.id.action_nearMeFragment_to_detailFragment)
         }
