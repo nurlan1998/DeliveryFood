@@ -3,19 +3,14 @@ package com.example.deliveryfood
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.LiveDataScope
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
-import com.example.deliveryfood.data.network.ApiInterFace
-import com.example.deliveryfood.data.network.RetrofitInstance
 
 import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,8 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.selectedLocationFragment3, R.id.authFragment,
-                R.id.loginFragment, R.id.detailFragment, R.id.cartFragment -> {
+                R.id.selectedLocationFragment, R.id.authFragment,
+                R.id.loginFragment, R.id.menuFragment, R.id.cartFragment -> {
                     hideButtonNav()
                 }
                 else -> showButtonNav()
