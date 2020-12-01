@@ -71,12 +71,23 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
+    //Room
+    def room = "2.2.5"
+    implementation "androidx.room:room-runtime:$room"
+    implementation "androidx.room:room-ktx:$room"
+    kapt "androidx.room:room-compiler:$room"
+
+    //Expandable library https://github.com/skydoves/ExpandableLayout
+    implementation "com.github.skydoves:expandablelayout:1.0.6"
+
+    //RoundImageView library https://github.com/vinc3m1/RoundedImageView
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    //OkHttpProfiler
+    implementation 'com.itkacher.okhttpprofiler:okhttpprofiler:1.0.7'
+
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
-    implementation "com.github.skydoves:expandablelayout:1.0.6"
-
-    implementation 'com.itkacher.okhttpprofiler:okhttpprofiler:1.0.7'
 
 }

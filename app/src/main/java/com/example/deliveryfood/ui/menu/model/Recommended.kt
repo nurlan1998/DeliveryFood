@@ -4,8 +4,6 @@ package com.example.deliveryfood.ui.menu.model
 import com.google.gson.annotations.SerializedName
 
 data class Recommended(
-    @SerializedName("addon_categories")
-    val addonCategories: List<AddonCategoryX>,
     @SerializedName("desc")
     val desc: Any,
     @SerializedName("id")

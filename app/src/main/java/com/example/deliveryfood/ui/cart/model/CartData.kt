@@ -1,13 +1,13 @@
-package com.example.deliveryfood.ui.menu.model
+package com.example.deliveryfood.ui.cart.model
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-data class HeadlinesModel(
-    @SerializedName("category_name")
-    val categoryName: String,
-    @SerializedName("desc")
-    val desc: Any,
+@Entity(tableName = "cart_table")
+data class CartData(
+    @PrimaryKey
     @SerializedName("id")
     val id: Int,
     @SerializedName("image")
@@ -28,10 +28,10 @@ data class HeadlinesModel(
     val name: String,
     @SerializedName("old_price")
     val oldPrice: String,
-    @SerializedName("placeholder_image")
-    val placeholderImage: Any,
     @SerializedName("price")
     val price: String,
+    @SerializedName("quantity")
+    val quantity: Int,
     @SerializedName("restaurant_id")
     val restaurantId: Int
 )

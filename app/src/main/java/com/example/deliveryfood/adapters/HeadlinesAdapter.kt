@@ -5,25 +5,22 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.deliveryfood.other.Constants
-import com.example.deliveryfood.ui.menu.model.AddonCategory
 import com.example.deliveryfood.ui.menu.model.HeadlinesModel
 import kotlinx.android.synthetic.main.item_headlines.view.*
 
-class HeadlinesAdapter(context: Context, data: List<HeadlinesModel>?) :
+class HeadlinesAdapter(context: Context) :
     RecyclerView.Adapter<HeadlinesAdapter.HeadlinesViewHolder>() {
-    private var items: List<HeadlinesModel>? = data
+    var items: List<HeadlinesModel>? = listOf()
     private var inflater: LayoutInflater = LayoutInflater.from(context)
-
-    private lateinit var itemClick: (HeadlinesModel) -> Unit
-
-    fun setItemClick(itemClick: (model: HeadlinesModel) -> Unit) {
-        this.itemClick = itemClick
-    }
+    private var count = 0
 
     override
     fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeadlinesViewHolder {
@@ -38,13 +35,33 @@ class HeadlinesAdapter(context: Context, data: List<HeadlinesModel>?) :
         val item = items?.get(position)
 
         holder.itemView.setOnClickListener {
-            itemClick.invoke(item!!)
+            it.findNavController().navigate(R.id.action_menuFragment_to_detailFragment)
+        }
+
+        holder.btnPlus.setOnClickListener {
+            onItemClickCallBack?.addCard(item!!)
+            onItemClickCallBack?.onItemClicked(count).also { count++ }
+        }
+        holder.btnMinus.setOnClickListener {
         }
 
         holder.tvTitle.text = item?.name
         holder.tvMenuPrice.text = item?.price
         Glide.with(holder.itemView.context).load(Constants.BASE_URL + item?.image)
             .into(holder.ivMenu)
+//        Glide.with(holder.itemView.context).load(item?.image)
+//            .into(holder.ivMenu)
+    }
+
+    private var onItemClickCallBack: OnItemClickCallBack? = null
+
+    interface OnItemClickCallBack {
+        fun onItemClicked(count: Int?)
+        fun addCard(headlinesModel: HeadlinesModel)
+    }
+
+    fun setOnItemClickCallBack(onItemClickCallBack: OnItemClickCallBack) {
+        this.onItemClickCallBack = onItemClickCallBack
     }
 
     override
@@ -56,5 +73,7 @@ class HeadlinesAdapter(context: Context, data: List<HeadlinesModel>?) :
         var tvTitle: TextView = itemView.findViewById(R.id.tvMenuTitle)
         var tvMenuPrice: TextView = itemView.tvMenuPrice
         var ivMenu: ImageView = itemView.ivMenu
+        var btnPlus: Button = itemView.btnMenuPlus
+        var btnMinus: Button = itemView.btnMenuMinus
     }
 }

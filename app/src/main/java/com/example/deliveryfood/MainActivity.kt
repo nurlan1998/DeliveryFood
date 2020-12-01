@@ -7,7 +7,6 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
-
 import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,9 +17,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-
 
         val navView: BottomNavigationView = findViewById(R.id.btm_nav_view)
 
@@ -46,8 +42,6 @@ class MainActivity : AppCompatActivity() {
         badge2.isVisible = true
     }
 
-
-
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(
             Navigation.findNavController(this, R.id.fragment_container),
@@ -62,9 +56,4 @@ class MainActivity : AppCompatActivity() {
     private fun hideButtonNav() {
         btm_nav_view.visibility = View.GONE
     }
-
-
-
-    }
-
-
+}

@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_near_me.*
 
 class NearMeFragment : Fragment(R.layout.fragment_near_me) {
 
-    private lateinit var mNearMeFragmentViewModel: NearMeFragmentViewModel
+    private lateinit var mNearMeFragmentViewModel: NearMeViewModel
     private lateinit var mNearMeViewModelFactory: NearMeViewModelFactory
     private lateinit var adapter: NearMeAdapter
     private lateinit var adapterHorizontal: NearMeHorizontalAdapter
@@ -27,9 +27,16 @@ class NearMeFragment : Fragment(R.layout.fragment_near_me) {
         setRecyclerView()
         init()
 
+//        mNearMeFragmentViewModel.startViewModel()
+//
+//        mNearMeFragmentViewModel.restaurantLiveData.observe(requireActivity(), Observer {
+//            adapter.models = it
+//            adapterHorizontal.horizontalModel = it
+//        })
+//
         mNearMeFragmentViewModel.restaurantLiveData.observe(requireActivity(), Observer {
             val restaurantsList = it.body()?.toList()
-            Log.i("Res",restaurantsList.toString())
+            Log.i("Res", restaurantsList.toString())
             if (restaurantsList != null) {
                 adapter.models = restaurantsList
                 adapterHorizontal.horizontalModel = restaurantsList
@@ -41,8 +48,8 @@ class NearMeFragment : Fragment(R.layout.fragment_near_me) {
         val repository = Repository()
         mNearMeViewModelFactory = NearMeViewModelFactory(Application(), repository)
         mNearMeFragmentViewModel = ViewModelProvider(this, mNearMeViewModelFactory)
-            .get(NearMeFragmentViewModel::class.java)
-        mNearMeFragmentViewModel.getRestaurants("41.311081","69.240562")
+            .get(NearMeViewModel::class.java)
+        mNearMeFragmentViewModel.getRestaurants("41.311081", "69.240562")
     }
 
     private fun setRecyclerView() {
@@ -52,7 +59,7 @@ class NearMeFragment : Fragment(R.layout.fragment_near_me) {
         rvNearMe.adapter = adapter
         rvNearMeHorizontal.adapter = adapterHorizontal
         adapter.setItemClick {
-            findNavController().navigate(R.id.action_nearMeFragment_to_detailFragment)
+            findNavController().navigate(R.id.action_nearMeFragment_to_menuFragment)
         }
     }
 

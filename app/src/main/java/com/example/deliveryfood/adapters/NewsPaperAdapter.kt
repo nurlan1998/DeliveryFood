@@ -1,17 +1,15 @@
 package com.example.deliveryfood.adapters
 
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.deliveryfood.R
+import com.example.deliveryfood.ui.menu.model.HeadlinesModel
 import com.example.deliveryfood.ui.menu.model.NewsPaperModel
 
 class NewsPaperAdapter(context: Context) :
@@ -39,14 +37,18 @@ class NewsPaperAdapter(context: Context) :
         val item = data[position]
 
         holder.tvName.text = item.name
-        headlineAdapter = HeadlinesAdapter(
-            mContext,
-            item.foods
-        )
+        headlineAdapter = HeadlinesAdapter(mContext)
+        headlineAdapter!!.items = item.headlines
 
-        headlineAdapter!!.setItemClick {
-           Navigation.findNavController(mContext as Activity,R.id.action_menuFragment_to_detailFragment)
-        }
+        headlineAdapter!!.setOnItemClickCallBack(object : HeadlinesAdapter.OnItemClickCallBack {
+            override fun onItemClicked(count: Int?) {
+                onItemClick?.onItemClicked(count)
+            }
+
+            override fun addCard(headlinesModel: HeadlinesModel) {
+                onItemClick?.addCard(headlinesModel = headlinesModel)
+            }
+        })
 
         holder.rvHeadlines.adapter = headlineAdapter
         holder.rvHeadlines.layoutManager = LinearLayoutManager(mContext)
@@ -60,6 +62,18 @@ class NewsPaperAdapter(context: Context) :
             holder.ivArrow.setImageResource(R.drawable.ic_arrow_down)
         }
     }
+
+    private var onItemClick: OnItemClick? = null
+
+    interface OnItemClick {
+        fun onItemClicked(count: Int?)
+        fun addCard(headlinesModel: HeadlinesModel)
+    }
+
+    fun setOnItemClickCallBack(onItemClick: OnItemClick) {
+        this.onItemClick = onItemClick
+    }
+
 
     override
     fun getItemCount(): Int {

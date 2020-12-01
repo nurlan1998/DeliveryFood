@@ -10,16 +10,16 @@ import java.util.concurrent.TimeUnit
 class RetrofitInstance {
     companion object {
 
-        val interceptor = HttpLoggingInterceptor().apply {
+        private val interceptor = HttpLoggingInterceptor().apply {
             this.level = HttpLoggingInterceptor.Level.BODY
         }
-        val client = OkHttpClient.Builder().apply {
+        private val client = OkHttpClient.Builder().apply {
             this.readTimeout(60, TimeUnit.SECONDS)
             this.writeTimeout(60, TimeUnit.SECONDS)
             this.addInterceptor(interceptor)
         }.build()
 
-        val retrofit by lazy {
+        private val retrofit by lazy {
             Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(client)

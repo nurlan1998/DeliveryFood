@@ -10,7 +10,6 @@ import com.example.deliveryfood.data.models.RestaurantsItem
 import com.example.deliveryfood.other.Constants.BASE_URL
 import kotlinx.android.synthetic.main.fragment_cart.view.*
 
-
 class NearMeAdapter() : RecyclerView.Adapter<NearMeAdapter.NearMeViewHolder>() {
 
     var models: List<RestaurantsItem> = listOf()
@@ -21,7 +20,7 @@ class NearMeAdapter() : RecyclerView.Adapter<NearMeAdapter.NearMeViewHolder>() {
 
     private lateinit var itemClick: (RestaurantsItem) -> Unit
 
-    fun setItemClick(itemClick: (model: RestaurantsItem) -> Unit){
+    fun setItemClick(itemClick: (model: RestaurantsItem) -> Unit) {
         this.itemClick = itemClick
     }
 
@@ -47,10 +46,12 @@ class NearMeAdapter() : RecyclerView.Adapter<NearMeAdapter.NearMeViewHolder>() {
             itemView.tvPrice.text = restaurantsItem.priceRange + " UZS"
 
             itemView.setOnClickListener {
-               itemClick.invoke(restaurantsItem)
+                itemClick.invoke(restaurantsItem)
             }
             Glide.with(itemView.context).load(BASE_URL + restaurantsItem.image)
                 .into(itemView.ivRestaurant)
+//            Glide.with(itemView.context).load(restaurantsItem.image)
+//                .into(itemView.ivRestaurant)
 
         }
     }
