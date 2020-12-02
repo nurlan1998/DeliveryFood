@@ -40,6 +40,7 @@
                 android:layout_marginEnd="4dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/round"
+                android:visibility="gone"
                 android:gravity="center"
                 android:layout_gravity="top|end"
                 android:textColor="@android:color/white"

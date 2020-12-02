@@ -2,11 +2,11 @@ package com.example.deliveryfood.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.deliveryfood.data.local.dao.CartDao
-import com.example.deliveryfood.ui.cart.model.CartData
+import com.example.deliveryfood.data.local.dao.MenuDao
+import com.example.deliveryfood.ui.menu.model.HeadlinesMenu
 
-@Database(entities = [CartData::class],version = 1,exportSchema = false)
-abstract class AppRoomDatabase: RoomDatabase() {
+@Database(entities = [HeadlinesMenu::class], version = 1, exportSchema = false)
+abstract class AppRoomDatabase : RoomDatabase() {
 
-    abstract fun getCartDao(): CartDao
+    abstract fun getMenuDao(): MenuDao
 }

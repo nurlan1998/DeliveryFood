@@ -9,16 +9,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.deliveryfood.R
-import com.example.deliveryfood.ui.menu.model.HeadlinesModel
-import com.example.deliveryfood.ui.menu.model.NewsPaperModel
+import com.example.deliveryfood.ui.menu.model.HeadlinesMenu
+import com.example.deliveryfood.ui.menu.model.NewsPaperMenu
 
 class NewsPaperAdapter(context: Context) :
     RecyclerView.Adapter<NewsPaperAdapter.NewspaperViewHolder>() {
     private var mContext: Context = context
     private var inflater: LayoutInflater = LayoutInflater.from(context)
     private var headlineAdapter: HeadlinesAdapter? = null
+    private var onItemClick: OnItemClick? = null
 
-    var data: MutableList<NewsPaperModel> = mutableListOf()
+    var data: MutableList<NewsPaperMenu> = mutableListOf()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -40,20 +41,20 @@ class NewsPaperAdapter(context: Context) :
         headlineAdapter = HeadlinesAdapter(mContext)
         headlineAdapter!!.items = item.headlines
 
-        headlineAdapter!!.setOnItemClickCallBack(object : HeadlinesAdapter.OnItemClickCallBack {
-            override fun onItemClicked(count: Int?) {
-                onItemClick?.onItemClicked(count)
+        headlineAdapter!!.setOnItemClickHeadline(object : OnItemClick {
+            override fun deleteCart(headlinesMenu: HeadlinesMenu) {
+                onItemClick?.deleteCart(headlinesMenu = headlinesMenu)
             }
 
-            override fun addCard(headlinesModel: HeadlinesModel) {
-                onItemClick?.addCard(headlinesModel = headlinesModel)
+            override fun addCard(headlinesMenu: HeadlinesMenu) {
+                onItemClick?.addCard(headlinesMenu = headlinesMenu)
             }
         })
 
         holder.rvHeadlines.adapter = headlineAdapter
         holder.rvHeadlines.layoutManager = LinearLayoutManager(mContext)
 
-        holder.itemView.setOnClickListener { onItemClicked(item) }
+        holder.itemView.setOnClickListener { onItemClickedExpandable(item) }
         if (item.isExpanded!!) {
             holder.rvHeadlines.visibility = View.VISIBLE
             holder.ivArrow.setImageResource(R.drawable.ic_arrow_up)
@@ -63,25 +64,17 @@ class NewsPaperAdapter(context: Context) :
         }
     }
 
-    private var onItemClick: OnItemClick? = null
-
-    interface OnItemClick {
-        fun onItemClicked(count: Int?)
-        fun addCard(headlinesModel: HeadlinesModel)
-    }
-
-    fun setOnItemClickCallBack(onItemClick: OnItemClick) {
+    fun setOnItemClick(onItemClick: OnItemClick) {
         this.onItemClick = onItemClick
     }
-
 
     override
     fun getItemCount(): Int {
         return data.size
     }
 
-    fun onItemClicked(newspaperModel: NewsPaperModel) {
-        newspaperModel.isExpanded = !newspaperModel.isExpanded!!
+    fun onItemClickedExpandable(newspaperMenu: NewsPaperMenu) {
+        newspaperMenu.isExpanded = !newspaperMenu.isExpanded!!
         notifyDataSetChanged()
     }
 

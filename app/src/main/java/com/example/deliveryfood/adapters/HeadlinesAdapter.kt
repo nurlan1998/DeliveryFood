@@ -8,19 +8,18 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.deliveryfood.other.Constants
-import com.example.deliveryfood.ui.menu.model.HeadlinesModel
+import com.example.deliveryfood.ui.menu.model.HeadlinesMenu
 import kotlinx.android.synthetic.main.item_headlines.view.*
 
 class HeadlinesAdapter(context: Context) :
     RecyclerView.Adapter<HeadlinesAdapter.HeadlinesViewHolder>() {
-    var items: List<HeadlinesModel>? = listOf()
+    var items: List<HeadlinesMenu>? = listOf()
     private var inflater: LayoutInflater = LayoutInflater.from(context)
-    private var count = 0
+    private var onItemClickHeadline: OnItemClick? = null
 
     override
     fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeadlinesViewHolder {
@@ -39,10 +38,10 @@ class HeadlinesAdapter(context: Context) :
         }
 
         holder.btnPlus.setOnClickListener {
-            onItemClickCallBack?.addCard(item!!)
-            onItemClickCallBack?.onItemClicked(count).also { count++ }
+            onItemClickHeadline?.addCard(item!!)
         }
         holder.btnMinus.setOnClickListener {
+            onItemClickHeadline?.deleteCart(item!!)
         }
 
         holder.tvTitle.text = item?.name
@@ -53,15 +52,8 @@ class HeadlinesAdapter(context: Context) :
 //            .into(holder.ivMenu)
     }
 
-    private var onItemClickCallBack: OnItemClickCallBack? = null
-
-    interface OnItemClickCallBack {
-        fun onItemClicked(count: Int?)
-        fun addCard(headlinesModel: HeadlinesModel)
-    }
-
-    fun setOnItemClickCallBack(onItemClickCallBack: OnItemClickCallBack) {
-        this.onItemClickCallBack = onItemClickCallBack
+    fun setOnItemClickHeadline(onItemClick: OnItemClick) {
+        this.onItemClickHeadline = onItemClick
     }
 
     override

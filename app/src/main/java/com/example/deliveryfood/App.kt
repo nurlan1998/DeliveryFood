@@ -10,7 +10,7 @@ class App : Application() {
 
         instance = this
 
-        database = Room.databaseBuilder(this, AppRoomDatabase::class.java, "cart_db")
+        database = Room.databaseBuilder(this, AppRoomDatabase::class.java, "delivery_db")
             .build()
     }
 

@@ -1,13 +1,15 @@
 package com.example.deliveryfood.ui.menu.model
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-data class HeadlinesModel(
+@Entity(tableName = "menu_table")
+data class HeadlinesMenu(
     @SerializedName("category_name")
     val categoryName: String,
-    @SerializedName("desc")
-    val desc: Any,
+    @PrimaryKey
     @SerializedName("id")
     val id: Int,
     @SerializedName("image")
@@ -28,8 +30,6 @@ data class HeadlinesModel(
     val name: String,
     @SerializedName("old_price")
     val oldPrice: String,
-    @SerializedName("placeholder_image")
-    val placeholderImage: Any,
     @SerializedName("price")
     val price: String,
     @SerializedName("restaurant_id")

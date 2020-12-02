@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class MenuResponse(
     @SerializedName("items")
-    val newsPaper: List<NewsPaperModel>,
+    val newsPaperMenu: List<NewsPaperMenu>,
     @SerializedName("recommended")
     val recommended: List<Recommended>
 )

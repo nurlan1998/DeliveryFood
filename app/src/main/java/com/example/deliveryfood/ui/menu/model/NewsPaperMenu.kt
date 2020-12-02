@@ -3,9 +3,9 @@ package com.example.deliveryfood.ui.menu.model
 
 import com.google.gson.annotations.SerializedName
 
-data class NewsPaperModel(
+data class NewsPaperMenu(
     @SerializedName("foods")
-    val headlines: List<HeadlinesModel>? = null,
+    val headlines: List<HeadlinesMenu>? = null,
     @SerializedName("id")
     val id: Int? = null,
     @SerializedName("name")

@@ -1,12 +1,13 @@
 package com.example.deliveryfood.ui.menu
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.deliveryfood.data.Repository
-import com.example.deliveryfood.ui.menu.model.HeadlinesModel
+import com.example.deliveryfood.ui.menu.model.HeadlinesMenu
 import com.example.deliveryfood.ui.menu.model.MenuResponse
-import com.example.deliveryfood.ui.menu.model.NewsPaperModel
+import com.example.deliveryfood.ui.menu.model.NewsPaperMenu
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
@@ -14,7 +15,7 @@ class MenuViewModel(var repository: Repository) : ViewModel() {
 
     //    var menuLiveData: MutableLiveData<List<NewsPaperModel>> = MutableLiveData()
     var menuLiveData: MutableLiveData<Response<MenuResponse>> = MutableLiveData()
-    var cardLiveData: MutableLiveData<HeadlinesModel> = MutableLiveData()
+    var cardLiveData: MutableLiveData<HeadlinesMenu> = MutableLiveData()
 
     fun getMenu(slug: String) {
         viewModelScope.launch {
@@ -23,10 +24,17 @@ class MenuViewModel(var repository: Repository) : ViewModel() {
         }
     }
 
+    fun insertMenu(headlinesMenu: HeadlinesMenu) = viewModelScope.launch { repository.insertMenu(headlinesMenu) }
+    fun deleteMenu(headlinesMenu: HeadlinesMenu) = viewModelScope.launch { repository.deleteMenu(headlinesMenu) }
+
+    fun getCartCount(): LiveData<Int>{
+        return repository.getCountCart()
+    }
+
 
     fun startViewModel() {
-        val members = mutableListOf<NewsPaperModel>()
-        val members2 = mutableListOf<HeadlinesModel>()
+        val members = mutableListOf<NewsPaperMenu>()
+        val members2 = mutableListOf<HeadlinesMenu>()
 
         for (i in 0..5) {
 //            val member =
@@ -53,7 +61,7 @@ class MenuViewModel(var repository: Repository) : ViewModel() {
 
         for (i in 0..5) {
             val member =
-                NewsPaperModel(
+                NewsPaperMenu(
                     headlines = members2,
                     id = 0,
                     name = "Плов",
