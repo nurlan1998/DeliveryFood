@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nearMeFragment"
-        android:name="com.example.deliveryfood.ui.nearme.NearMeFragment"
+        android:name="com.example.deliveryfood.ui.nearme.view.NearMeFragment"
         android:label="fragment_near_me"
         tools:layout="@layout/fragment_near_me" >
         <action
@@ -28,17 +28,28 @@
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.example.deliveryfood.ui.profile.AccountFragment"
+        android:name="com.example.deliveryfood.ui.profile.view.ProfileFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.example.deliveryfood.ui.cart.CartFragment"
+        android:name="com.example.deliveryfood.ui.cart.view.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart">
         <action
             android:id="@+id/action_cartFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument android:name="image_restaurant"
+            app:argType="string" />
+        <argument
+            android:name="title_restaurant"
+            app:argType="string" />
+        <argument
+            android:name="image_product"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/exploreFragment"
@@ -61,7 +72,7 @@
     </fragment>
     <fragment
         android:id="@+id/authFragment"
-        android:name="com.example.deliveryfood.ui.profile.AuthFragment"
+        android:name="com.example.deliveryfood.ui.profile.view.AuthFragment"
         android:label="fragment_auth"
         tools:layout="@layout/fragment_auth" >
         <action
@@ -70,7 +81,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.deliveryfood.ui.profile.LoginFragment"
+        android:name="com.example.deliveryfood.ui.profile.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -79,7 +90,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.example.deliveryfood.ui.menu.MenuFragment"
+        android:name="com.example.deliveryfood.ui.menu.view.MenuFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_menu" >
         <action
@@ -88,10 +99,27 @@
         <action
             android:id="@+id/action_menuFragment_to_cartFragment"
             app:destination="@id/cartFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="image_restaurant"
+            app:argType="string" />
+        <argument android:name="title_restaurant"
+            app:argType="string" />
+        <argument android:name="type_food"
+            app:argType="string" />
+        <argument android:name="time_restaurant" />
+        <argument android:name="rating_restaurant" />
+        <argument android:name="price_restaurant" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.deliveryfood.ui.detail.DetailFragment"
+        android:name="com.example.deliveryfood.ui.detail.view.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

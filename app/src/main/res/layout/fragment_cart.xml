@@ -5,119 +5,122 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.cart.CartFragment">
+    tools:context=".ui.cart.view.CartFragment">
 
-    <LinearLayout
-        android:id="@+id/linerLayout"
+    <androidx.core.widget.NestedScrollView
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/ivRestaurant"
-            android:layout_width="100dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="@dimen/large_margin_top"
-            android:layout_marginBottom="@dimen/large_margin_bottom" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/large_margin_bottom"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvNameRestaurant"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/large_margin_top"
-                android:layout_marginEnd="@dimen/large_margin_end"
-                android:maxLines="1"
-                android:text="Gyro Bar"
-                android:textSize="@dimen/large_text_size"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvTypeFood"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_margin_top"
-                android:layout_marginEnd="@dimen/large_margin_end"
-                android:text="Fries,Meet,Greet"
-                android:textSize="@dimen/small_text_size" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="@dimen/small_margin_top"
-                android:layout_marginEnd="@dimen/large_margin_end"
-                android:background="#EEEEEE" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_margin_top"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="@dimen/iv_small_layout_width"
-                    android:layout_height="@dimen/iv_small_layout_height"
-                    android:layout_gravity="center"
-                    android:src="@drawable/icon_star" />
-
-                <TextView
-                    android:id="@+id/tvTimes"
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:gravity="center"
-                    android:text="4.5"
-                    android:textSize="@dimen/small_icon_text_size" />
-
-                <ImageView
-                    android:layout_width="@dimen/iv_small_layout_width"
-                    android:layout_height="@dimen/iv_small_layout_height"
-                    android:layout_gravity="center"
-                    android:src="@drawable/icon_cloack" />
-
-                <TextView
-                    android:id="@+id/tvRating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/small_margin_start"
-                    android:layout_marginBottom="@dimen/large_margin_bottom"
-                    android:text="15 MINS"
-                    android:textSize="10sp" />
-
-                <ImageView
-                    android:layout_width="@dimen/iv_small_layout_width"
-                    android:layout_height="@dimen/iv_small_layout_height"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/small_margin_start"
-                    android:src="@drawable/icon_wallet" />
-
-                <TextView
-                    android:id="@+id/tvPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/small_margin_start"
-                    android:layout_marginEnd="@dimen/large_margin_end"
-                    android:text="$35 FOR TWO"
-                    android:textSize="@dimen/small_icon_text_size" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        app:layout_constraintTop_toBottomOf="@id/linerLayout"
+        app:layout_constraintBottom_toTopOf="@id/tv_title_deliver_address"
         android:layout_width="match_parent"
         android:layout_height="0dp">
-        <ScrollView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/linerLayout"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivRestaurantCart"
+                android:layout_width="100dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/large_margin_top"
+                android:layout_marginBottom="@dimen/large_margin_bottom" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/large_margin_bottom"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNameRestaurantCart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large_margin_top"
+                    android:layout_marginEnd="@dimen/large_margin_end"
+                    android:maxLines="1"
+                    android:text="Gyro Bar"
+                    android:textSize="@dimen/large_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTypeFoodCart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin_top"
+                    android:layout_marginEnd="@dimen/large_margin_end"
+                    android:text="Fries,Meet,Greet"
+                    android:textSize="@dimen/small_text_size" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="@dimen/small_margin_top"
+                    android:layout_marginEnd="@dimen/large_margin_end"
+                    android:background="#EEEEEE" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin_top"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/iv_small_layout_width"
+                        android:layout_height="@dimen/iv_small_layout_height"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_star" />
+
+                    <TextView
+                        android:id="@+id/tvTimesCart"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="4.5"
+                        android:textSize="@dimen/small_icon_text_size" />
+
+                    <ImageView
+                        android:layout_width="@dimen/iv_small_layout_width"
+                        android:layout_height="@dimen/iv_small_layout_height"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_cloack" />
+
+                    <TextView
+                        android:id="@+id/tvRatingCart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_margin_start"
+                        android:layout_marginBottom="@dimen/large_margin_bottom"
+                        android:text="15 MINS"
+                        android:textSize="10sp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/iv_small_layout_width"
+                        android:layout_height="@dimen/iv_small_layout_height"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/small_margin_start"
+                        android:src="@drawable/icon_wallet" />
+
+                    <TextView
+                        android:id="@+id/tvPriceCart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_margin_start"
+                        android:layout_marginEnd="@dimen/large_margin_end"
+                        android:text="$35 FOR TWO"
+                        android:textSize="@dimen/small_icon_text_size" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintTop_toBottomOf="@id/linerLayout"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/tv_title_items_cart"
@@ -154,28 +157,19 @@
                 android:padding="@dimen/large_padding"
                 android:hint="Coupon"
                 app:layout_constraintTop_toBottomOf="@id/rvCart"
-                app:layout_constraintBottom_toTopOf="@id/btnMyOrders"
                 android:drawableRight="@drawable/ic_arrow_right_24"
                 android:drawableLeft="@drawable/ic_coupon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnMyOrders"
-                android:textAllCaps="false"
-                app:layout_constraintTop_toBottomOf="@id/et_coupon"
-                android:text="You have some on-going orders. VIEW"
-                android:layout_marginBottom="@dimen/small_margin_bottom"
-                app:layout_constraintBottom_toTopOf="@id/tv_bill_details"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
             <TextView
                 android:id="@+id/tv_bill_details"
+                android:layout_marginTop="@dimen/large_margin_top"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnMyOrders"
+                app:layout_constraintTop_toBottomOf="@id/et_coupon"
                 android:layout_marginStart="@dimen/large_margin_start"
                 android:text="Bill Details"
+                android:textStyle="bold"
                 android:layout_marginBottom="@dimen/large_margin_bottom"
                 app:layout_constraintBottom_toTopOf="@id/tv_text_item_total"
                 android:layout_width="wrap_content"
@@ -223,6 +217,9 @@
                 app:layout_constraintBottom_toTopOf="@id/tv_text_delivery_charges"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+            <View style="@style/Divider"
+                app:layout_constraintTop_toBottomOf="@id/tv_text_restaurant_charges"
+                app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
                 android:id="@+id/tvDeliveryCharges"
@@ -244,6 +241,9 @@
                 app:layout_constraintBottom_toTopOf="@id/tv_text_pay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+            <View style="@style/Divider"
+                app:layout_constraintTop_toBottomOf="@id/tv_text_delivery_charges"
+                app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
                 android:id="@+id/tvNumberPay"
@@ -266,53 +266,46 @@
                 android:layout_height="wrap_content"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-    </LinearLayout>
-
-<LinearLayout
-    app:layout_constraintBottom_toBottomOf="parent"
-    android:background="@android:color/background_light"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/tv_title_deliver_address"
-            android:text="Deliver To"
-            app:layout_constraintStart_toStartOf="@id/tvDeliverAddress"
-            android:layout_marginBottom="@dimen/large_margin_bottom"
-            app:layout_constraintBottom_toTopOf="@id/tvDeliverAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/tvChangeAddress"
-            android:text="Change"
-            android:layout_marginRight="@dimen/large_margin_start"
-            android:layout_marginStart="@dimen/large_margin_start"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/tvDeliverAddress"
-            android:layout_marginEnd="@dimen/large_margin_end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/tvDeliverAddress"
-            android:layout_marginStart="@dimen/large_margin_start"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="Ташкент, Узбекистан, NY 13032, UZ"
-            android:layout_marginBottom="@dimen/large_margin_bottom"
-            app:layout_constraintBottom_toTopOf="@id/btnProceed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnProceed"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-</LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tv_title_deliver_address"
+        android:text="Deliver To"
+        android:layout_marginTop="@dimen/large_margin_top"
+        app:layout_constraintBottom_toTopOf="@id/tvDeliverAddress"
+        app:layout_constraintStart_toStartOf="@id/tvDeliverAddress"
+        android:layout_marginBottom="@dimen/small_margin_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvChangeAddress"
+        android:text="Change"
+        android:layout_marginRight="@dimen/large_margin_start"
+        android:layout_marginStart="@dimen/large_margin_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tvDeliverAddress"
+        android:layout_marginEnd="@dimen/large_margin_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvDeliverAddress"
+        android:layout_marginStart="@dimen/large_margin_start"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Ташкент, Узбекистан, NY 13032, UZ"
+        android:layout_marginBottom="@dimen/large_margin_bottom"
+        app:layout_constraintBottom_toTopOf="@id/btnProceed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnProceed"
+        android:padding="@dimen/large_padding"
+        android:text="Proceed To Checkout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

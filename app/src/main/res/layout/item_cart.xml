@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:paddingBottom="4dp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:src="@drawable/icon_cloack"
+        android:layout_gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="56dp"/>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tvProductTitle"
+        android:layout_marginTop="@dimen/large_margin_top"
+        android:text="Pesto CBR"
+        android:padding="@dimen/small_padding"
+        android:textSize="@dimen/large_text_size"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btnProductDelete"
+            android:layout_marginStart="@dimen/small_margin_start"
+            android:layout_marginTop="@dimen/small_margin_top"
+            android:textStyle="bold"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:text="-"
+            android:layout_marginBottom="1dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+        <Button
+            android:id="@+id/btnProductCount"
+            android:layout_marginTop="@dimen/small_margin_top"
+            android:textStyle="bold"
+            android:layout_marginStart="1dp"
+            android:text="1"
+            android:layout_marginBottom="1dp"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+        <Button
+            android:id="@+id/btnProductAdd"
+            android:layout_marginTop="@dimen/small_margin_top"
+            android:padding="@dimen/small_padding"
+            android:textStyle="bold"
+            android:layout_marginStart="1dp"
+            android:layout_marginBottom="1dp"
+            android:gravity="center"
+            android:background="@android:color/white"
+            android:text="+"
+            android:layout_marginEnd="@dimen/large_margin_end"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+
+        <TextView
+            android:id="@+id/tvProductPrice"
+            android:text="21.00"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/small_margin_start"
+            android:padding="@dimen/small_padding"
+            android:layout_marginTop="@dimen/small_margin_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

@@ -14,4 +14,7 @@ interface MenuDao {
 
     @Query("SELECT COUNT(*) FROM menu_table")
     fun countCart(): LiveData<Int>
+
+    @Query("SELECT * FROM menu_table")
+    fun getAllProductCart(): LiveData<List<HeadlinesMenu>>
 }

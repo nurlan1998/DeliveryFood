@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.deliveryfood.other.Constants
 import com.example.deliveryfood.ui.menu.model.HeadlinesMenu
+import com.example.deliveryfood.ui.menu.view.MenuFragmentDirections
 import kotlinx.android.synthetic.main.item_headlines.view.*
 
 class HeadlinesAdapter(context: Context) :
@@ -34,7 +35,8 @@ class HeadlinesAdapter(context: Context) :
         val item = items?.get(position)
 
         holder.itemView.setOnClickListener {
-            it.findNavController().navigate(R.id.action_menuFragment_to_detailFragment)
+            var action = MenuFragmentDirections.actionMenuFragmentToDetailFragment(item!!.id)
+            it.findNavController().navigate(action)
         }
 
         holder.btnPlus.setOnClickListener {

@@ -6,21 +6,162 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll"
+        app:layout_constraintBottom_toTopOf="@id/btm_nav_cart"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivMainMenu"
+                android:layout_width="100dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/large_margin_top"
+                android:layout_marginBottom="@dimen/large_margin_bottom" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/large_margin_bottom"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvMainNameMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large_margin_top"
+                    android:layout_marginEnd="@dimen/large_margin_end"
+                    android:maxLines="1"
+                    android:text="Gyro Bar"
+                    android:textSize="@dimen/large_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvMainTypeFoodMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin_top"
+                    android:layout_marginEnd="@dimen/large_margin_end"
+                    android:text="Fries,Meet,Greet"
+                    android:textSize="@dimen/small_text_size" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="@dimen/small_margin_top"
+                    android:layout_marginEnd="@dimen/large_margin_end"
+                    android:background="#EEEEEE" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin_top"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/iv_small_layout_width"
+                        android:layout_height="@dimen/iv_small_layout_height"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_star" />
+
+                    <TextView
+                        android:id="@+id/tvMainTimesMenu"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="4.5"
+                        android:textSize="@dimen/small_icon_text_size" />
+
+                    <ImageView
+                        android:layout_width="@dimen/iv_small_layout_width"
+                        android:layout_height="@dimen/iv_small_layout_height"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_cloack" />
+
+                    <TextView
+                        android:id="@+id/tvMainRatingMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_margin_start"
+                        android:layout_marginBottom="@dimen/large_margin_bottom"
+                        android:text="15 MINS"
+                        android:textSize="10sp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/iv_small_layout_width"
+                        android:layout_height="@dimen/iv_small_layout_height"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/small_margin_start"
+                        android:src="@drawable/icon_wallet" />
+
+                    <TextView
+                        android:id="@+id/tvMainPriceMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_margin_start"
+                        android:layout_marginEnd="@dimen/large_margin_end"
+                        android:text="$35 FOR TWO"
+                        android:textSize="@dimen/small_icon_text_size" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/large_margin_start"
+            android:layout_marginTop="@dimen/large_margin_top"
+            android:layout_marginEnd="@dimen/large_margin_end"
+            android:background="@drawable/search_backround"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+            android:hint="Search"
+            android:inputType="text"
+            android:padding="8dp"/>
+        <TextView
+            android:layout_marginStart="@dimen/large_margin_start"
+            android:layout_marginTop="@dimen/large_margin_top"
+            android:layout_marginBottom="@dimen/small_margin_bottom"
+            android:text="Recommended"
+            android:textStyle="bold"
+            android:textSize="@dimen/large_text_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHorizontalMenu"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
+            android:layout_marginTop="@dimen/small_margin_top"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
     </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/btm_nav_cart"
+        app:layout_constraintTop_toBottomOf="@id/nested_scroll"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/btm_nav_cart"
+        app:layout_constraintVertical_bias="1"
         android:background="#60B246"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <FrameLayout
@@ -53,7 +194,7 @@
             android:textSize="@dimen/large_text_size"
             android:layout_gravity="end"
             android:layout_marginEnd="@dimen/large_margin_end"
-            android:text="149$"
+            android:text="149"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
