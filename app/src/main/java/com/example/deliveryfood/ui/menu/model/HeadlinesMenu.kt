@@ -7,8 +7,6 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "menu_table")
 data class HeadlinesMenu(
-    @SerializedName("category_name")
-    val categoryName: String,
     @PrimaryKey
     @SerializedName("id")
     val id: Int,
@@ -31,7 +29,7 @@ data class HeadlinesMenu(
     @SerializedName("old_price")
     val oldPrice: String,
     @SerializedName("price")
-    val price: String,
+    var price: String,
     @SerializedName("restaurant_id")
     val restaurantId: Int
 )

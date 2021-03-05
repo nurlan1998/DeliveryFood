@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.deliveryfood.App
 import com.example.deliveryfood.R
-import com.example.deliveryfood.adapters.HorizontalMenuAdapter
 import com.example.deliveryfood.adapters.NewsPaperAdapter
 import com.example.deliveryfood.adapters.OnItemClick
 import com.example.deliveryfood.data.Repository
@@ -21,9 +20,7 @@ import com.example.deliveryfood.other.Constants
 import com.example.deliveryfood.ui.menu.viewmodel.MenuViewModel
 import com.example.deliveryfood.ui.menu.viewmodel.MenuViewModelFactory
 import com.example.deliveryfood.ui.menu.model.*
-import com.example.deliveryfood.ui.nearme.view.NearMeFragmentDirections
 import kotlinx.android.synthetic.main.fragment_menu.*
-import kotlinx.android.synthetic.main.item_horizontal.view.*
 
 
 class MenuFragment : Fragment(R.layout.fragment_menu) {
@@ -34,7 +31,6 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
     private lateinit var db: AppRoomDatabase
     private lateinit var cartDao: MenuDao
     private val args: MenuFragmentArgs by navArgs()
-    private lateinit var horizontalMenuAdapter: HorizontalMenuAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -43,17 +39,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         setupRecyclerView()
         setDataAdapter()
         setupDataRestaurant()
-
-        adapter.setOnItemClick(object : OnItemClick {
-
-            override fun deleteCart(headlinesMenu: HeadlinesMenu) {
-                menuViewModel.deleteMenu(headlinesMenu)
-            }
-
-            override fun addCard(headlinesMenu: HeadlinesMenu) {
-                menuViewModel.insertMenu(headlinesMenu)
-            }
-        })
+        addDeleteCart()
 
         menuViewModel.getCartCount().observe(viewLifecycleOwner, Observer {
             if (it == 0) {
@@ -65,12 +51,28 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         })
 
         btm_nav_cart.setOnClickListener {
+//            val action = MenuFragmentDirections.actionMenuFragmentToCartFragment(args.id,args.imageRestaurant,args.titleRestaurant,args.)
             findNavController().navigate(R.id.action_menuFragment_to_cartFragment)
         }
 
         var item = NewsPaperMenu()
         item.isExpanded = true
         adapter.onItemClickedExpandable(item)
+    }
+
+    private fun addDeleteCart() {
+        adapter.setOnItemClick(object : OnItemClick {
+
+            override fun deleteCart(headlinesMenu: HeadlinesMenu) {
+                menuViewModel.deleteMenu(headlinesMenu)
+
+            }
+
+            override fun addCard(headlinesMenu: HeadlinesMenu) {
+                menuViewModel.insertMenu(headlinesMenu)
+
+            }
+        })
     }
 
     private fun setupDataRestaurant() {
@@ -82,18 +84,19 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
     private fun setupRecyclerView() {
         adapter =
             NewsPaperAdapter(requireContext())
+        val layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+        recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        horizontalMenuAdapter = HorizontalMenuAdapter()
-        rvHorizontalMenu.adapter = horizontalMenuAdapter
     }
 
     private fun init() {
         val repository = Repository()
         menuViewModelFactory = MenuViewModelFactory(repository = repository)
 
-        menuViewModel = ViewModelProvider(requireActivity(), menuViewModelFactory).get(MenuViewModel::class.java)
+        menuViewModel = ViewModelProvider(
+            requireActivity(),
+            menuViewModelFactory
+        ).get(MenuViewModel::class.java)
 
         menuViewModel.startViewModel()
         menuViewModel.getMenu(args.id)
@@ -109,14 +112,9 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         menuViewModel.menuLiveData.observe(viewLifecycleOwner, Observer {
             val response = it.body()?.newsPaperMenu
             val responseHorizontal = it.body()?.recommended
-            Log.i("Recommended",responseHorizontal.toString())
+            Log.i("Recommended", responseHorizontal.toString())
             adapter.data = response as MutableList<NewsPaperMenu>
-            horizontalMenuAdapter.models = responseHorizontal!!
-            horizontalMenuAdapter.setItemClick {recommended ->
-                var id = recommended.id
-                val action = MenuFragmentDirections.actionMenuFragmentToDetailFragment(id)
-                findNavController().navigate(action)
-            }
+            adapter.models = (responseHorizontal as MutableList<HeadlinesMenu>?)!!
         })
     }
 }

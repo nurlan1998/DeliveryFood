@@ -7,5 +7,5 @@ data class MenuResponse(
     @SerializedName("items")
     val newsPaperMenu: List<NewsPaperMenu>,
     @SerializedName("recommended")
-    val recommended: List<Recommended>
+    val recommended: List<HeadlinesMenu>
 )

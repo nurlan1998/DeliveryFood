@@ -190,6 +190,7 @@
         </FrameLayout>
 
         <TextView
+            android:id="@+id/tv_total_price"
             android:layout_marginTop="@dimen/large_margin_top"
             android:textSize="@dimen/large_text_size"
             android:layout_gravity="end"

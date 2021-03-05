@@ -34,6 +34,7 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
         fun populate(headlinesMenu: HeadlinesMenu){
             itemView.tvProductTitle.text = headlinesMenu.name
             itemView.tvProductPrice.text = headlinesMenu.price
+//            itemView.btnProductCount.text = headlinesMenu.quantity
 
             itemView.btnProductAdd.setOnClickListener {
                 onItemClickCart?.addCard(headlinesMenu)
